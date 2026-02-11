@@ -1,1 +1,24 @@
-[]
+{
+  "users": {
+    "Nagar_Vanshal": [
+      {
+        "todo": "hello",
+        "status": "❌"
+      }
+    ],
+    "Vanshal": [
+      {
+        "todo": "8:30 am  coding",
+        "status": "✔️"
+      },
+      {
+        "todo": "10:00 am collage",
+        "status": "❌"
+      },
+      {
+        "todo": "1:00 pm lunch",
+        "status": "❌"
+      }
+    ]
+  }
+}
