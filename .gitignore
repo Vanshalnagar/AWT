@@ -1,0 +1,17 @@
+
+
+# Node modules
+node_modules/
+
+# Large datasets
+*.csv
+
+# Vite cache
+.vite/
+
+# Environment files
+.env
+
+# OS files
+.DS_Store
+Thumbs.db

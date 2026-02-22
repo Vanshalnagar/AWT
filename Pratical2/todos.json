@@ -2,7 +2,11 @@
   "users": {
     "Nagar_Vanshal": [
       {
-        "todo": "hello",
+        "todo": "project work",
+        "status": "❌"
+      },
+      {
+        "todo": "afternoon",
         "status": "❌"
       }
     ],

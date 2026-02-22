@@ -78,7 +78,7 @@ async function deltodo(req, res) {
     console.log(index !== -1 ? "DELETED!!" : "not found todo u entered!!");
     res.json({ message: index !== -1 ? "todo deleted successfully" : "todo not found" });
 }
-
+ 
 async function marktodo(req, res) {
     let val = req.body.todo;
     let data = await readfile();
