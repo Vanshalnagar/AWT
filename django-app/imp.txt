@@ -1,0 +1,37 @@
+start pject:django-admin startproject project_name
+run project: python manage.py runserver (default:port=8000)
+default use sqllite db
+python manage.py migrate // create all the tables in db
+python manage.py createsuperuser  //joy 123456
+
+jazzadmin
+admin lte
+
+pip install django
+pip install -U django-jazzmin
+
+mydjangoproject is root projecct
+
+##for changeing web layout
+
+python manage.py startapp myuserapp
+views.py
+urls.py
+setting.py
+
+
+template
+    home.html
+view.py
+
+
+
+admin panel
+sueruser
+migration
+load view
+template load
+static data
+navigation
+model create
+admin model migrate
