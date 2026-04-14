@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flask CRUD - Students</title>
+  <style>
+    body { font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+    h1 { margin-bottom: 10px; }
+    h2 { margin: 8px 0; font-size: 15px; }
+    form { border: 1px solid #000; padding: 12px; width: 480px; }
+    label { font-size: 13px; }
+    input { padding: 3px 6px; margin-left: 4px; width: 180px; }
+    br { display: none; }
+    label { display: inline-block; margin: 4px 6px 4px 0; }
+    button, a { font-size: 13px; margin-top: 8px; }
+    table { border-collapse: collapse; width: 680px; margin-top: 8px; font-size: 13px; }
+    th, td { border: 1px solid #000; padding: 5px 10px; text-align: center; }
+    hr { width: 680px; margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <h1>Student Management</h1>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+      <p><strong>{{ message }}</strong></p>
+    {% endfor %}
+  {% endwith %}
+
+  <h2>{{ 'Edit Student' if edit_student else 'Add New Student' }}</h2>
+  <form method="POST" action="/">
+    <input type="hidden" name="action" value="{{ 'update' if edit_student else 'add' }}">
+    {% if edit_student %}
+      <input type="hidden" name="id" value="{{ edit_student.id }}">
+    {% endif %}
+
+    <label>Name: <input type="text" name="name" value="{{ edit_student.name if edit_student else '' }}" required></label><br><br>
+    <label>Email: <input type="email" name="email" value="{{ edit_student.email if edit_student else '' }}" required></label><br><br>
+    <label>Age: <input type="number" name="age" value="{{ edit_student.age if edit_student else '' }}" min="1" required></label><br><br>
+    <label>Department: <input type="text" name="department" value="{{ edit_student.department if edit_student else '' }}" required></label><br><br>
+
+    <button type="submit">{{ 'Update Student' if edit_student else 'Add Student' }}</button>
+    {% if edit_student %}<a href="/">Cancel</a>{% endif %}
+  </form>
+
+  <hr>
+
+  <h2>All Students ({{ students | length }})</h2>
+  <table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+      <tr><th>ID</th><th>Name</th><th>Email</th><th>Age</th><th>Department</th><th>Actions</th></tr>
+    </thead>
+    <tbody>
+      {% for s in students %}
+      <tr>
+        <td>{{ s.id }}</td>
+        <td>{{ s.name }}</td>
+        <td>{{ s.email }}</td>
+        <td>{{ s.age }}</td>
+        <td>{{ s.department }}</td>
+        <td>
+          <a href="/?edit_id={{ s.id }}">Edit</a> |
+          <form method="POST" action="/" style="display:inline" onsubmit="return confirm('Delete {{ s.name }}?')">
+            <input type="hidden" name="action" value="delete">
+            <input type="hidden" name="id" value="{{ s.id }}">
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="6">No students found.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

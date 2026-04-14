@@ -1,0 +1,23 @@
+[
+  {
+    "id": 3,
+    "name": "Vanshal  Nagar",
+    "email": "nagarvanshal2005@gmail.com",
+    "age": 25,
+    "department": "cse"
+  },
+  {
+    "id": 4,
+    "name": "Vanshal Nagar",
+    "email": "nagarvanshal2005@gmail.com",
+    "age": 25,
+    "department": "cse"
+  },
+  {
+    "id": 5,
+    "name": "Vanshal Nagar",
+    "email": "23bcp38@sot.pdpu.ac.in",
+    "age": 23,
+    "department": "cse"
+  }
+]
